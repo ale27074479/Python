@@ -1,21 +1,12 @@
 def is_year_leap(year):
-    """Определяет, является ли год високосным.
-    
-    Args:
-        year (int): Год для проверки.
-        
-    Returns:
-        bool: True если год високосный, иначе False.
-    """
-    return year % 4 == 0
-
-
-# Пример вызова функции
-test_year = 2028
-result = is_year_leap(test_year)
-print(f"год {test_year}: {result}")
-
-# Дополнительные примеры (для проверки)
-print(f"год 2023: {is_year_leap(2023)}")
-print(f"год 2000: {is_year_leap(2000)}")
-print(f"год 1900: {is_year_leap(1900)}")
+    if year % 400 == 0:
+        return True
+    if year % 100 == 0:
+        return False
+    if year % 4 == 0:
+        return True
+    return False
+print(is_year_leap(2020))  # True (делится на 4, не делится на 100)
+print(is_year_leap(2023))  # False (не делится на 4)
+print(is_year_leap(2000))  # True (делится на 400)
+print(is_year_leap(1900))  # False (делится на 100, но не на 400)
